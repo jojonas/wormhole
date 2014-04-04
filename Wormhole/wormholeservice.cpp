@@ -17,7 +17,7 @@ WormholeService::WormholeService(QObject *parent)
 
 WormholeService::~WormholeService()
 {
-
+	google::protobuf::ShutdownProtobufLibrary();
 }
 
 void WormholeService::connectToHost(QHostAddress address, PortNumber port)
