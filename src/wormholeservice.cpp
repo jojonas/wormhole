@@ -7,12 +7,13 @@
 
 WormholeService::WormholeService(QObject *parent)
 : QObject(parent)
+, chunksize(1024)
+, outDirectory(".")
+, peers()
 , connectionManager(this)
 , netHandler(this)
-, peers()
-, chunksize(1024)
 , socketReadyReadMapper(this)
-, outDirectory(".")
+
 {
 	QObject::connect(&socketReadyReadMapper, SIGNAL(mapped(QObject*)), this, SLOT(readSocket(QObject*)));
 }

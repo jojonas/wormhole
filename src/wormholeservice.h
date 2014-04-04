@@ -44,15 +44,14 @@ private:
 	void flushAllPeers();
 	void handleFileMessage(QIODevice* socket, FileMessage* message);
 
+	const quint64 chunksize;
+	QDir outDirectory;
 
 	QSet<Peer> peers;
 	ConnectionHandler connectionManager;
 	NetHandler netHandler;
 	QSignalMapper socketReadyReadMapper;
-
-	QDir outDirectory;
-
-	const quint64 chunksize;
+	
 };
 
 #endif // WORMHOLESERVICE_H
