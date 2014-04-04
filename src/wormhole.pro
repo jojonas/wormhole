@@ -38,17 +38,15 @@ HEADERS +=	checksum.h \
 			wormhole.h \
 			wormholeservice.h 
 
-# this is a bug workaround for Visual Studio
-win32 {
-	SOURCES += file.pb.cc
-	HEADERS += file.pb.h
-}
+
 
 
 FORMS +=	wormhole.ui \
 			droppanel.ui \
 			connectioninputdialog.ui 
 
+win32:SOURCES += file.pb.cc
+win32:HEADERS += file.pb.h
 			
 # Directories
 DESTDIR +=	../bin
@@ -59,8 +57,13 @@ OBJECTS_DIR += ./tmp/obj
 
 # Paths
 INCLUDEPATH += . $$UI_DIR $$RCC_DIR $$MOC_DIR 
-
 DEPENDPATH += .
-LIBS +=		-lprotobuf
 
+
+win32 {
+	INCLUDEPATH += ./protobuf/include
+	LIBS +=	-L"./protobuf/lib" -llibprotobuf
+} else {
+	LIBS +=	-lprotobuf
+}
 
