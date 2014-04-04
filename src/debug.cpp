@@ -20,7 +20,7 @@ QString msgTypeToString(QtMsgType type) {
 	return severity;
 }
 
-void outputMessageHandlerQt4(QtMsgType type, const char* msg) {
+void outputMsgHandler(QtMsgType type, const char* msg) {
 	QString output = QObject::tr("[%1]: %2\n").arg(msgTypeToString(type)).arg(msg);
 	debugOutput(output);
 
@@ -32,18 +32,18 @@ void outputMessageHandlerQt4(QtMsgType type, const char* msg) {
 }
 
 #if QT_VERSION >= 0x050000
-void outputMessageHandlerQt5(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+void outputMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
 	QString output = QObject::tr("%1:%2 : %4\n").arg(context.file).arg(context.line).arg(msg);
-	outputMessageHandlerQt(type, output.toStdString().c_str());
+	outputMsgHandler(type, output.toStdString().c_str());
 }
 #endif
 
 #ifdef _DEBUG
 void setupDebugging() {
 #if QT_VERSION >= 0x050000
-	qInstallMessageHandler(outputMessageHandlerQt5);
+	qInstallMessageHandler(outputMessageHandler);
 #else
-	qInstallMsgHandler(outputMessageHandlerQt4);
+	qInstallMsgHandler(outputMsgHandler);
 #endif
 }
 #else
