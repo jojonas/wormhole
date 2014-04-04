@@ -113,10 +113,10 @@ void WormholeService::handleFileMessage(QIODevice* socket, FileMessage* message)
 	QFile* file = new QFile(outDirectory.filePath(message->filename().c_str()), this);
 
 	if (file->open(QIODevice::WriteOnly)) {
-		const int partsCount = message->parts_count();
+		const quint32 partsCount = message->parts_count();
 		Message* partMessage = 0;
 		MessageType partType;
-		for (unsigned int i = 0; i < partsCount; i++) {
+		for (quint32 i = 0; i < partsCount; i++) {
 			netHandler.handle(socket, &partMessage, &partType);
 			if (partType == FILE_PART_MESSAGE) {
 				FilePartMessage* filePartMessage = dynamic_cast<FilePartMessage*>(partMessage);
