@@ -87,7 +87,7 @@ QList<SocketPointer> ConnectionHandler::getAllConnections() const
 	return connections.values();
 }
 
-void ConnectionHandler::start(quint16 port)
+void ConnectionHandler::start(PortNumber port)
 {
 	server.listen(QHostAddress::Any, port);
 }

@@ -3,21 +3,23 @@
 
 #include <QHostAddress>
 
+typedef quint16 PortNumber;
+
 class Peer
 {
 
 public:
-	Peer(QHostAddress address, qint16 port);
+	Peer(QHostAddress address, PortNumber port);
 	~Peer();
 
 	QHostAddress getAddress() const;
-	quint16 getPort() const;
+	PortNumber getPort() const;
 
 	QString toString() const;
 
 private:
 	QHostAddress address;
-	quint16 port;
+	PortNumber port;
 };
 
 inline bool operator==(const Peer& p1, const Peer& p2)

@@ -18,7 +18,7 @@ public:
 	ConnectionHandler(QObject *parent = 0);
 	~ConnectionHandler();
 
-	void start(quint16 port);
+	void start(PortNumber port);
 	void stop();
 
 	SocketPointer getConnection(Peer peer);

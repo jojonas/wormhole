@@ -34,7 +34,7 @@ QString ConnectionInputDialog::getIpAddress() const
 	return ui.ipAddress->text();
 }
 
-quint16 ConnectionInputDialog::getPort() const
+PortNumber ConnectionInputDialog::getPort() const
 {
 	return ui.port->text().toUInt();
 }
@@ -51,7 +51,7 @@ void ConnectionInputDialog::setIpAddress(QString address)
 	ui.ipAddress->setText(address);
 }
 
-void ConnectionInputDialog::setPort(quint16 port)
+void ConnectionInputDialog::setPort(PortNumber port)
 {
 	ui.port->setText(QString::number(port));
 }

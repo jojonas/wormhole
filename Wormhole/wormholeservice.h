@@ -19,8 +19,8 @@ public:
 	WormholeService(QObject *parent = 0);
 	~WormholeService();
 
-	void connectToHost(QHostAddress address, quint16 port);
-	void startListening(quint16 port);
+	void connectToHost(QHostAddress address, PortNumber port);
+	void startListening(PortNumber port);
 	void setOutputDirectory(QDir dir);
 
 	QSet<Peer> getPeers() const;

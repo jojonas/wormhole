@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "ui_connectioninputdialog.h"
+#include "peer.h"
 
 class ConnectionInputDialog : public QDialog
 {
@@ -13,10 +14,10 @@ public:
 	~ConnectionInputDialog();
 
 	QString getIpAddress() const;
-	quint16 getPort() const;
+	PortNumber getPort() const;
 
 	void setIpAddress(QString address);
-	void setPort(quint16 port);
+	void setPort(PortNumber port);
 
 public slots:
 	void validateInput();

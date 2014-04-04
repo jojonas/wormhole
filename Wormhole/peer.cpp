@@ -1,6 +1,6 @@
 #include "peer.h"
 
-Peer::Peer(QHostAddress address, qint16 port)
+Peer::Peer(QHostAddress address, PortNumber port)
 : address(address)
 , port(port)
 {}
@@ -14,7 +14,7 @@ QHostAddress Peer::getAddress() const{
 	return address;
 }
 
-quint16 Peer::getPort() const
+PortNumber Peer::getPort() const
 {
 	return port;
 }

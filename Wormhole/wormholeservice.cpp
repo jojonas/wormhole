@@ -20,7 +20,7 @@ WormholeService::~WormholeService()
 
 }
 
-void WormholeService::connectToHost(QHostAddress address, quint16 port)
+void WormholeService::connectToHost(QHostAddress address, PortNumber port)
 {
 	Peer peer(address, port);
 	if (!peers.contains(peer)) {
@@ -153,7 +153,7 @@ int WormholeService::getPeerCount() const
 	return peers.size();
 }
 
-void WormholeService::startListening(quint16 port)
+void WormholeService::startListening(PortNumber port)
 {
 	connectionManager.stop();
 	connectionManager.start(port);
