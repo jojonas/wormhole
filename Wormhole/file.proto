@@ -1,0 +1,26 @@
+enum MessageType {
+	FILE_MESSAGE = 1;
+	FILE_PART_MESSAGE = 2;
+	MIME_MESSAGE = 3;
+}	
+
+
+message FileMessage {
+	optional string filename = 1;
+	required uint64 size	= 2;
+	required uint32 parts_count = 3;
+}
+
+message FilePartMessage {
+	required uint64 length = 2;
+	optional uint32 checksum = 3;
+	optional bytes content = 4;
+}
+
+
+message MimeMessage {
+	optional float version = 1;
+	required string content_type = 2;
+	required uint64 length = 3;
+	optional bytes body = 4;
+}
