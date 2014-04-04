@@ -1,5 +1,6 @@
 #include "droppanel.h"
 
+#include <QPointer>
 #include <QFile>
 #include <QDragEnterEvent>
 #include <QDragMoveEvent>
@@ -30,8 +31,9 @@ void DropPanel::dropEvent(QDropEvent* event) {
 		QList<QUrl> urlList = mimeData->urls();
 
 		for (int i = 0; i < urlList.size(); i++){
-			QFile* file = new QFile(urlList.at(i).toLocalFile(), this);
+			QPointer<QFile> file = new QFile(urlList.at(i).toLocalFile(), this);
 			emit fileDropped(file);
+			delete file;
 		}
 		event->acceptProposedAction();
 	}
