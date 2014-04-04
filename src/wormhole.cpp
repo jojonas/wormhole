@@ -5,6 +5,7 @@
 #include <QMenu>
 #include <QInputDialog>
 #include <QDesktopServices>
+#include <QUrl>
 
 #ifdef Q_OS_WIN
 #include <Windows.h>
@@ -14,6 +15,8 @@
 
 Wormhole::Wormhole(QWidget *parent)
 : QMainWindow(parent)
+, defaultPort(30000)
+, defaultStaysOnTop(true)
 , service(this)
 {
 	ui.setupUi(this);

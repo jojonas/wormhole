@@ -1,8 +1,15 @@
 #include "debug.h"
 
-void outputMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
-	QString severity;
+void debugOutput(const QString& message) {
+#if defined(WIN32) && defined(_DEBUG)
+	OutputDebugStringW(message.toStdWString().c_str());
+#else
+	puts(message.toStdString().c_str());
+#endif 
+}
 
+QString msgTypeToString(QtMsgType type) {
+	QString severity;
 	switch (type) {
 	case QtDebugMsg: severity = "Debug"; break;
 	case QtWarningMsg: severity = "Warning"; break;
@@ -10,22 +17,34 @@ void outputMessageHandler(QtMsgType type, const QMessageLogContext &context, con
 	case QtFatalMsg: severity = "Fatal"; break;
 	default: severity = "Unknown"; break;
 	}
+	return severity;
+}
 
-	QString output = QObject::tr("%1:%2 [%3]: %4\n").arg(context.file).arg(context.line).arg(severity).arg(msg);
+void outputMessageHandlerQt4(QtMsgType type, const char* msg) {
+	QString output = QObject::tr("[%1]: %2\n").arg(msgTypeToString(type)).arg(msg);
+	debugOutput(output);
+
 #if defined(WIN32) && defined(_DEBUG)
-	OutputDebugStringW(output.toStdWString().c_str());
-
 	if (type == QtFatalMsg || type == QtCriticalMsg) {
 		__debugbreak();
 	}
-#else
-	puts(output.toStdString().c_str());
 #endif 
 }
 
+#if QT_VERSION >= 0x050000
+void outputMessageHandlerQt5(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+	QString output = QObject::tr("%1:%2 : %4\n").arg(context.file).arg(context.line).arg(msg);
+	outputMessageHandlerQt(type, output.toStdString().c_str());
+}
+#endif
+
 #ifdef _DEBUG
 void setupDebugging() {
-	qInstallMessageHandler(outputMessageHandler);
+#if QT_VERSION >= 0x050000
+	qInstallMessageHandler(outputMessageHandlerQt5);
+#else
+	qInstallMsgHandler(outputMessageHandlerQt4);
+#endif
 }
 #else
 void setupDebugging() {}

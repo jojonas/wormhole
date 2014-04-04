@@ -7,6 +7,7 @@
 #include <QDragLeaveEvent>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QUrl>
 
 #include <QDebug>
 

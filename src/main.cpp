@@ -1,7 +1,7 @@
 #include "debug.h"
 
 #include "wormhole.h"
-#include <QtWidgets/QApplication>
+#include <QApplication>
 
 #include <QtGlobal>
 #include <QtDebug>

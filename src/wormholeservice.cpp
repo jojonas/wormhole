@@ -1,5 +1,7 @@
 #include "wormholeservice.h"
 
+#include <cmath> // ceil()
+
 #include "nethandler.h"
 #include "checksum.h"
 

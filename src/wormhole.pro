@@ -1,7 +1,11 @@
 # General Setup
 TARGET = Wormhole
 CONFIG += debug
-QT += core gui widgets network
+
+QT += core gui network
+greaterThan(QT_MAJOR_VERSION, 4) {
+	QT += widgets
+} 
 
 # Platform specific debug code
 win32:debug:CONFIG += console
@@ -16,7 +20,6 @@ SOURCES +=	checksum.cpp \
 			connectioninputdialog.cpp \
 			debug.cpp \
 			droppanel.cpp \
-			file.pb.cc \ # I shouldn't have to do this....
 			main.cpp \
 			nethandler.cpp \
 			peer.cpp \
@@ -29,12 +32,18 @@ HEADERS +=	checksum.h \
 			connectioninputdialog.h \
 			debug.h \
 			droppanel.h \
-			file.pb.h \ # I shouldn't have to do this.... (2)
 			nethandler.h \
 			peer.h \
 			qtprotobuf.h \
 			wormhole.h \
 			wormholeservice.h 
+
+# this is a bug workaround for Visual Studio
+win32 {
+	SOURCES += file.pb.cc
+	HEADERS += file.pb.h
+}
+
 
 FORMS +=	wormhole.ui \
 			droppanel.ui \
@@ -49,11 +58,9 @@ MOC_DIR +=	./tmp/moc
 OBJECTS_DIR += ./tmp/obj
 
 # Paths
-INCLUDEPATH += . $$UI_DIR $$RCC_DIR $$MOC_DIR \
-			./protobuf/include
+INCLUDEPATH += . $$UI_DIR $$RCC_DIR $$MOC_DIR 
 
 DEPENDPATH += .
-LIBS +=		-L"./protobuf/lib" \
-			-llibprotobuf
+LIBS +=		-lprotobuf
 
 

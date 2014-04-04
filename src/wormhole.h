@@ -1,7 +1,8 @@
 #ifndef WORMHOLE_H
 #define WORMHOLE_H
 
-#include <QtWidgets/QMainWindow>
+#include <QMainWindow>
+
 #include "ui_wormhole.h"
 
 #include "wormholeservice.h"
@@ -32,8 +33,8 @@ private slots:
 private:
 	Q_DISABLE_COPY(Wormhole);
 
-	const int defaultPort = 300000;
-	const int defaultStaysOnTop = true;
+	const int defaultPort;
+	const int defaultStaysOnTop;
 
 	void setupApplication();
 	void setupWindow();

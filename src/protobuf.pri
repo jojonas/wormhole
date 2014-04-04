@@ -1,4 +1,4 @@
-!win32:PROTOC = ./protobuf/protoc
+!win32:PROTOC = protoc
 win32:PROTOC = protobuf\protoc.exe
 
 protobuf_decl.name = protobuf headers
@@ -13,6 +13,6 @@ protobuf_impl.input = PROTOS
 protobuf_impl.output = ${QMAKE_FILE_IN_PATH}/${QMAKE_FILE_BASE}.pb.cc
 protobuf_impl.depends = ${QMAKE_FILE_IN_PATH}/${QMAKE_FILE_BASE}.pb.h
 #protobuf_impl.dependency_type = TYPE_C
-protobuf_impl.commands = $$escape_expand(\n)
+protobuf_impl.commands = $$escape_expand(\\n)
 protobuf_impl.variable_out = SOURCES
 QMAKE_EXTRA_COMPILERS += protobuf_impl
