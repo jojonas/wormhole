@@ -107,6 +107,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_connectioninputdialog.cpp">
       <Filter>Generierte Dateien\Release</Filter>
     </ClCompile>
+    <ClCompile Include="debug.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="wormhole.h">
@@ -161,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_connectioninputdialog.h">
       <Filter>Generierte Dateien</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>Header Dateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

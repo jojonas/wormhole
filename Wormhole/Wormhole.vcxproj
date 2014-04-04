@@ -233,6 +233,7 @@
     <ClCompile Include="checksum.cpp" />
     <ClCompile Include="connectionhandler.cpp" />
     <ClCompile Include="connectioninputdialog.cpp" />
+    <ClCompile Include="debug.cpp" />
     <ClCompile Include="droppanel.cpp" />
     <ClCompile Include="file.pb.cc" />
     <ClCompile Include="GeneratedFiles\Debug\moc_connectionhandler.cpp">
@@ -361,6 +362,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DNDEBUG -DQT_CORE_LIB -DQT_DLL -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64  "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtWidgets" "-I.\protobuf\include" "-I$(INHERIT)\." "-I.\protobuf\include"</Command>
     </CustomBuild>
+    <ClInclude Include="debug.h" />
     <ClInclude Include="GeneratedFiles\ui_connectioninputdialog.h" />
     <ClInclude Include="qtprotobuf.h" />
     <CustomBuild Include="wormholeservice.h">
