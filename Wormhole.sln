@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wormhole", "Wormhole\Wormhole.vcxproj", "{7750243E-E8BC-45FE-870D-D952C240E5C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dropsite", "C:\Qt\Qt5.3.0_msvc2013\Examples\Qt-5.3\widgets\draganddrop\dropsite\dropsite.vcxproj", "{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -23,12 +21,6 @@ Global
 		{7750243E-E8BC-45FE-870D-D952C240E5C5}.Release|Win32.Build.0 = Release|Win32
 		{7750243E-E8BC-45FE-870D-D952C240E5C5}.Release|x64.ActiveCfg = Release|x64
 		{7750243E-E8BC-45FE-870D-D952C240E5C5}.Release|x64.Build.0 = Release|x64
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Debug|Win32.Build.0 = Debug|Win32
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Debug|x64.ActiveCfg = Debug|Win32
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Release|Win32.ActiveCfg = Release|Win32
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Release|Win32.Build.0 = Release|Win32
-		{3E1917E0-CBEC-3189-B4E4-AAF9B3F91350}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
