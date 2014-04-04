@@ -30,6 +30,7 @@ inline bool operator==(const Peer& p1, const Peer& p2)
 #if QT_VERSION < 0x050000
 // workaround, already implemented in Qt>=5.0.0 (???)
 inline uint qHash(const QHostAddress& key, uint seed = 0) {
+	Q_UNUSED(seed);
 	Q_IPV6ADDR address = key.toIPv6Address();
 	QByteArray array = QByteArray::fromRawData(reinterpret_cast<const char*>(&address), 16);
 	return qHash(array);
